@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var targetTopView: UIView!
     @IBOutlet weak var targetBottomView: UIView!
     @IBOutlet weak var Constraint: NSLayoutConstraint!
+    @IBOutlet weak var backView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
         view.TargetTopView = self.targetTopView
         view.TargetBottomView = self.targetBottomView
         view.Constraint = self.Constraint
+        view.BackgroundView = self.backView
         view.set()
         
     }

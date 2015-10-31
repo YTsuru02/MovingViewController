@@ -19,6 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGr-3A-hb7" userLabel="backView">
+                                <rect key="frame" x="0.0" y="84" width="414" height="632"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSG-6r-sQ2" userLabel="movingViewController">
                                 <rect key="frame" x="0.0" y="566" width="414" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,10 +52,14 @@
                             <constraint firstItem="1fY-jY-skS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ML7-2A-75r"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SNi-HX-fUH" secondAttribute="trailing" constant="-16" id="Njl-J9-eod"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1fY-jY-skS" secondAttribute="trailing" constant="-16" id="OzO-Q5-bSO"/>
+                            <constraint firstItem="BGr-3A-hb7" firstAttribute="top" secondItem="1fY-jY-skS" secondAttribute="bottom" id="QrT-8m-f9Z"/>
                             <constraint firstItem="BSG-6r-sQ2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="30:736" id="SQP-hH-idQ"/>
+                            <constraint firstItem="SNi-HX-fUH" firstAttribute="top" secondItem="BGr-3A-hb7" secondAttribute="bottom" id="bFN-J4-dJ1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="z9Z-9c-z9m" secondAttribute="trailing" constant="-16" id="dTs-me-7v5"/>
+                            <constraint firstItem="BGr-3A-hb7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="dsN-Vp-rWy"/>
                             <constraint firstItem="z9Z-9c-z9m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ecJ-GD-9IN"/>
                             <constraint firstItem="SNi-HX-fUH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="f24-Qr-fgO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BGr-3A-hb7" secondAttribute="trailing" constant="-16" id="mVI-x0-Ver"/>
                             <constraint firstItem="1fY-jY-skS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="20:736" id="sY4-Ou-77n"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BSG-6r-sQ2" secondAttribute="bottom" constant="120" id="wM5-3h-ato"/>
                             <constraint firstAttribute="bottomMargin" secondItem="SNi-HX-fUH" secondAttribute="bottom" id="xoR-pJ-SFH"/>
@@ -67,6 +75,7 @@
                         <outlet property="Constraint" destination="00b-pt-Vyd" id="bU9-r9-laG"/>
                         <outlet property="MV" destination="z9Z-9c-z9m" id="Dim-SB-4BA"/>
                         <outlet property="MVController" destination="BSG-6r-sQ2" id="cmd-7D-GfU"/>
+                        <outlet property="backView" destination="BGr-3A-hb7" id="95a-pV-mwl"/>
                         <outlet property="targetBottomView" destination="SNi-HX-fUH" id="1N3-b9-hqt"/>
                         <outlet property="targetTopView" destination="1fY-jY-skS" id="WY1-SQ-Vq1"/>
                     </connections>

@@ -15,6 +15,7 @@ class MovingViewController: UIView {
     var Constraint:NSLayoutConstraint
     var TargetTopView:UIView
     var TargetBottomView:UIView
+    var BackgroundView:UIView
     
     
     override init() {
@@ -24,6 +25,7 @@ class MovingViewController: UIView {
         Constraint = NSLayoutConstraint()
         TargetTopView = UIView()
         TargetBottomView = UIView()
+        BackgroundView = UIView()
         
         super.init()
     }
@@ -35,6 +37,7 @@ class MovingViewController: UIView {
         Constraint = NSLayoutConstraint()
         TargetTopView = UIView()
         TargetBottomView = UIView()
+        BackgroundView = UIView()
 
         super.init(coder: aDecoder)
     }
@@ -46,6 +49,7 @@ class MovingViewController: UIView {
         Constraint = NSLayoutConstraint()
         TargetTopView = UIView()
         TargetBottomView = UIView()
+        BackgroundView = UIView()
         
         super.init(frame: frame)
     }
@@ -60,6 +64,11 @@ class MovingViewController: UIView {
         swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
         self.MovingViewContoroller.addGestureRecognizer(swipeDownGestureRecognizer)
         
+        let SPACE_FOR_TOP = ((self.TargetBottomView.center.y - self.TargetTopView.center.y) - self.TargetBottomView.bounds.size.height / 2 - self.TargetTopView.bounds.size.height / 2) - self.MovingViewContoroller.bounds.size.height
+        
+        self.BackgroundView.backgroundColor = UIColor.yellowColor()
+        var ratio = self.Constraint.constant / SPACE_FOR_TOP
+        self.BackgroundView.alpha = ratio
         
     }
     
@@ -72,12 +81,15 @@ class MovingViewController: UIView {
         self.setNeedsUpdateConstraints()
         self.Constraint.constant = SPACE_FOR_TOP
         
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.layoutIfNeeded()
             }, completion: { _ in
             self.MovingViewContoroller.backgroundColor = UIColor.redColor()
+                
+            self.BackgroundView.backgroundColor = UIColor.yellowColor()
+            self.BackgroundView.alpha = 1.0
+
         })
-        
     }
     
     func swipeDown() {
@@ -90,10 +102,13 @@ class MovingViewController: UIView {
         
         self.MovingViewContoroller.backgroundColor = UIColor.redColor()
         
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.layoutIfNeeded()
             }, completion: { _ in
             self.MovingViewContoroller.backgroundColor = UIColor.redColor()
+            self.BackgroundView.backgroundColor = UIColor.yellowColor()
+            self.BackgroundView.alpha = 0.0
+
         })
         
         
@@ -104,6 +119,8 @@ class MovingViewController: UIView {
         let SPACE_FOR_TOP = ((self.TargetBottomView.center.y - self.TargetTopView.center.y) - self.TargetBottomView.bounds.size.height / 2 - self.TargetTopView.bounds.size.height / 2) - self.MovingViewContoroller.bounds.size.height
         
         let SPACE_FOR_BOTTOM = 0.0 as CGFloat
+        var constraint_float = self.Constraint.constant
+        
         
         let touch = touches.anyObject() as UITouch
         var location = touch.locationInView(self.MovingViewContoroller)
@@ -139,18 +156,20 @@ class MovingViewController: UIView {
             
             self.MovingViewContoroller.backgroundColor = UIColor.lightGrayColor();
             self.Constraint.constant -= location.y
+
+            self.BackgroundView.backgroundColor = UIColor.yellowColor()
+            var ratio = self.Constraint.constant / SPACE_FOR_TOP
+            self.BackgroundView.alpha = ratio
             
-            let blackColor = UIColor.blackColor()
-            self.backgroundColor = blackColor.colorWithAlphaComponent(self.Constraint.constant / SPACE_FOR_TOP)
-        
+            
         }
         
         UIView.animateWithDuration(0.01, animations: { () -> Void in
             self.layoutIfNeeded()
         })
         
-        NSLog("Constraint->%f", self.Constraint.constant)
-        NSLog("Moving->%f", location.y)
+        NSLog("Constraint->\(self.Constraint.constant)")
+        NSLog("Moving->\(location.y)")
     }
     
 
