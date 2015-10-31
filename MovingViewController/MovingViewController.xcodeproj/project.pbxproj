@@ -13,6 +13,7 @@
 		E93420CB1BE4613B0082E8C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E93420CA1BE4613B0082E8C7 /* Images.xcassets */; };
 		E93420CE1BE4613B0082E8C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93420CC1BE4613B0082E8C7 /* LaunchScreen.xib */; };
 		E93420DA1BE4613B0082E8C7 /* MovingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93420D91BE4613B0082E8C7 /* MovingViewControllerTests.swift */; };
+		E93420E61BE4619C0082E8C7 /* MovingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93420E51BE4619C0082E8C7 /* MovingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 		E93420D31BE4613B0082E8C7 /* MovingViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovingViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93420D81BE4613B0082E8C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E93420D91BE4613B0082E8C7 /* MovingViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingViewControllerTests.swift; sourceTree = "<group>"; };
+		E93420E51BE4619C0082E8C7 /* MovingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingViewController.swift; sourceTree = "<group>"; };
+		E93420E71BE4655E0082E8C7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 				E93420CA1BE4613B0082E8C7 /* Images.xcassets */,
 				E93420CC1BE4613B0082E8C7 /* LaunchScreen.xib */,
 				E93420C11BE4613B0082E8C7 /* Supporting Files */,
+				E93420E51BE4619C0082E8C7 /* MovingViewController.swift */,
+				E93420E71BE4655E0082E8C7 /* PrefixHeader.pch */,
 			);
 			path = MovingViewController;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E93420E61BE4619C0082E8C7 /* MovingViewController.swift in Sources */,
 				E93420C61BE4613B0082E8C7 /* ViewController.swift in Sources */,
 				E93420C41BE4613B0082E8C7 /* AppDelegate.swift in Sources */,
 			);
@@ -289,7 +295,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MovingViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -349,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MovingViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

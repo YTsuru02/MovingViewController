@@ -1,25 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MovingViewController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="MovingViewController" customModule="MovingViewController" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSG-6r-sQ2" userLabel="movingViewController">
+                                <rect key="frame" x="0.0" y="586" width="414" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="z9Z-9c-z9m" userLabel="movingView">
+                                <rect key="frame" x="0.0" y="616" width="414" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fY-jY-skS" userLabel="targetTopView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNi-HX-fUH" userLabel="targetButtomView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="z9Z-9c-z9m" secondAttribute="bottom" id="0BU-rh-rI2"/>
+                            <constraint firstItem="BSG-6r-sQ2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="0i8-ww-jbh"/>
+                            <constraint firstItem="SNi-HX-fUH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1:736" id="73i-Pa-3hj"/>
+                            <constraint firstItem="1fY-jY-skS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="64" id="AJA-lV-Alr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BSG-6r-sQ2" secondAttribute="trailing" constant="-16" id="L0q-TK-lm4"/>
+                            <constraint firstItem="z9Z-9c-z9m" firstAttribute="top" secondItem="BSG-6r-sQ2" secondAttribute="bottom" id="LGX-nc-GhY"/>
+                            <constraint firstItem="1fY-jY-skS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ML7-2A-75r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SNi-HX-fUH" secondAttribute="trailing" constant="-16" id="Njl-J9-eod"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1fY-jY-skS" secondAttribute="trailing" constant="-16" id="OzO-Q5-bSO"/>
+                            <constraint firstItem="BSG-6r-sQ2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="30:736" id="SQP-hH-idQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z9Z-9c-z9m" secondAttribute="trailing" constant="-16" id="dTs-me-7v5"/>
+                            <constraint firstItem="z9Z-9c-z9m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ecJ-GD-9IN"/>
+                            <constraint firstItem="SNi-HX-fUH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="f24-Qr-fgO"/>
+                            <constraint firstItem="BSG-6r-sQ2" firstAttribute="top" secondItem="SNi-HX-fUH" secondAttribute="bottom" id="ju0-82-zZm"/>
+                            <constraint firstItem="1fY-jY-skS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1:736" id="sY4-Ou-77n"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BSG-6r-sQ2" secondAttribute="bottom" constant="120" id="wM5-3h-ato"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="Constraint" destination="wM5-3h-ato" id="Ra9-1R-zq6"/>
+                        <outlet property="MV" destination="z9Z-9c-z9m" id="Dim-SB-4BA"/>
+                        <outlet property="MVController" destination="BSG-6r-sQ2" id="cmd-7D-GfU"/>
+                        <outlet property="targetButtomView" destination="SNi-HX-fUH" id="ylg-5D-hd8"/>
+                        <outlet property="targetTopView" destination="1fY-jY-skS" id="WY1-SQ-Vq1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="188" y="104"/>
         </scene>
     </scenes>
 </document>
