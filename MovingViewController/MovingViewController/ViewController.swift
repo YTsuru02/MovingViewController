@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         var view = MovingViewController()
-        
         view = self.view as MovingViewController
         
         view.MovingViewContoroller = self.MVController

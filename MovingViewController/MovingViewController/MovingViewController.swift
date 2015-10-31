@@ -16,6 +16,7 @@ class MovingViewController: UIView {
     var TargetTopView:UIView
     var TargetBottomView:UIView
     
+    
     override init() {
         
         MovingViewContoroller = UIView()
@@ -34,7 +35,7 @@ class MovingViewController: UIView {
         Constraint = NSLayoutConstraint()
         TargetTopView = UIView()
         TargetBottomView = UIView()
-        
+
         super.init(coder: aDecoder)
     }
     
@@ -48,8 +49,7 @@ class MovingViewController: UIView {
         
         super.init(frame: frame)
     }
-
-
+    
     func set() {
         
         let swipeUpGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeUp")
@@ -67,8 +67,10 @@ class MovingViewController: UIView {
         
         NSLog("swipeUp!")
         
+        let SPACE_FOR_TOP = ((self.TargetBottomView.center.y - self.TargetTopView.center.y) - self.TargetBottomView.bounds.size.height / 2 - self.TargetTopView.bounds.size.height / 2) - self.MovingViewContoroller.bounds.size.height
+        
         self.setNeedsUpdateConstraints()
-        self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height - self.TargetTopView.bounds.size.height
+        self.Constraint.constant = SPACE_FOR_TOP
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.layoutIfNeeded()
@@ -82,7 +84,9 @@ class MovingViewController: UIView {
         
         NSLog("swipeDown!")
         
-        self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - (self.TargetBottomView.center.y + self.TargetBottomView.bounds.size.height / 2))
+        let SPACE_FOR_BOTTOM = 0.0 as CGFloat
+        
+        self.Constraint.constant = SPACE_FOR_BOTTOM
         
         self.MovingViewContoroller.backgroundColor = UIColor.redColor()
         
@@ -97,44 +101,47 @@ class MovingViewController: UIView {
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         
+        let SPACE_FOR_TOP = ((self.TargetBottomView.center.y - self.TargetTopView.center.y) - self.TargetBottomView.bounds.size.height / 2 - self.TargetTopView.bounds.size.height / 2) - self.MovingViewContoroller.bounds.size.height
+        
+        let SPACE_FOR_BOTTOM = 0.0 as CGFloat
+        
         let touch = touches.anyObject() as UITouch
         var location = touch.locationInView(self.MovingViewContoroller)
         
-
-        
         self.setNeedsUpdateConstraints()
         
-        if (self.Constraint.constant >= (UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height - self.TargetTopView.bounds.size.height) {
-            
-            NSLog("Collision.");
-            self.MovingViewContoroller.backgroundColor = UIColor.redColor();
-            
-            if (location.y > 0.0) {
-                self.Constraint.constant = ((UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height - self.TargetTopView.bounds.size.height) - 0.1
-                return
-            }
-            
-            
-            self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height - self.TargetTopView.bounds.size.height
-            
-            
-        } else if (self.Constraint.constant <= (UIScreen.mainScreen().bounds.size.height - (self.TargetBottomView.center.y + self.TargetBottomView.bounds.size.height / 2))) {
+        if (self.Constraint.constant >= SPACE_FOR_TOP) {
             
             NSLog("Collision.")
             self.MovingViewContoroller.backgroundColor = UIColor.redColor()
             
+            if (location.y > 0.0) {
+                self.Constraint.constant = SPACE_FOR_TOP - 0.1
+                return
+            }
+        
+            self.Constraint.constant = SPACE_FOR_TOP
+            
+            
+        } else if (self.Constraint.constant <= SPACE_FOR_BOTTOM) {
+            
+            NSLog("Collision.")
+            self.MovingViewContoroller.backgroundColor = UIColor.redColor()
             
             if (location.y < 0.0) {
-                self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - (self.TargetBottomView.center.y + self.TargetBottomView.bounds.size.height / 2)) + 0.1
+                self.Constraint.constant = SPACE_FOR_BOTTOM + 0.1
                 return;
             }
             
-            self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - (self.TargetBottomView.center.y + self.TargetBottomView.bounds.size.height / 2))
+            self.Constraint.constant = SPACE_FOR_BOTTOM
             
         } else {
             
             self.MovingViewContoroller.backgroundColor = UIColor.lightGrayColor();
             self.Constraint.constant -= location.y
+            
+            let blackColor = UIColor.blackColor()
+            self.backgroundColor = blackColor.colorWithAlphaComponent(self.Constraint.constant / SPACE_FOR_TOP)
         
         }
         
