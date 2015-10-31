@@ -161,7 +161,6 @@ class MovingViewController: UIView {
             var ratio = self.Constraint.constant / SPACE_FOR_TOP
             self.BackgroundView.alpha = ratio
             
-            
         }
         
         UIView.animateWithDuration(0.01, animations: { () -> Void in
