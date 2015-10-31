@@ -68,7 +68,7 @@ class MovingViewController: UIView {
         NSLog("swipeUp!")
         
         self.setNeedsUpdateConstraints()
-        self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height
+        self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height - self.TargetTopView.bounds.size.height
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.layoutIfNeeded()
@@ -100,23 +100,22 @@ class MovingViewController: UIView {
         let touch = touches.anyObject() as UITouch
         var location = touch.locationInView(self.MovingViewContoroller)
         
+
+        
         self.setNeedsUpdateConstraints()
         
-        NSLog("Constraint->%f", self.Constraint.constant)
-        NSLog("Moving->%f", location.y)
-        
-        if (self.Constraint.constant >= (UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height) {
+        if (self.Constraint.constant >= (UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height - self.TargetTopView.bounds.size.height) {
             
             NSLog("Collision.");
             self.MovingViewContoroller.backgroundColor = UIColor.redColor();
             
             if (location.y > 0.0) {
-                self.Constraint.constant = ((UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height) - 0.1
+                self.Constraint.constant = ((UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height - self.TargetTopView.bounds.size.height) - 0.1
                 return
             }
             
             
-            self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height
+            self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - (self.TargetTopView.center.y + self.TargetTopView.bounds.size.height / 2)) - self.MovingViewContoroller.bounds.height - self.TargetTopView.bounds.size.height
             
             
         } else if (self.Constraint.constant <= (UIScreen.mainScreen().bounds.size.height - (self.TargetBottomView.center.y + self.TargetBottomView.bounds.size.height / 2))) {
@@ -142,6 +141,9 @@ class MovingViewController: UIView {
         UIView.animateWithDuration(0.01, animations: { () -> Void in
             self.layoutIfNeeded()
         })
+        
+        NSLog("Constraint->%f", self.Constraint.constant)
+        NSLog("Moving->%f", location.y)
     }
     
 
