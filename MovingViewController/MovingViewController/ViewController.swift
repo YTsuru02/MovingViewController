@@ -12,23 +12,23 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var MVController: UIView!
     @IBOutlet weak var MV: UITableView!
-    @IBOutlet weak var Constraint: NSLayoutConstraint!
     @IBOutlet weak var targetTopView: UIView!
-    @IBOutlet weak var targetButtomView: UIView!
+    @IBOutlet weak var targetBottomView: UIView!
+    @IBOutlet weak var Constraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         var view = MovingViewController()
-       
+        
         view = self.view as MovingViewController
         
         view.MovingViewContoroller = self.MVController
         view.MovingView = self.MV
-        view.Constraint = self.Constraint
         view.TargetTopView = self.targetTopView
-        view.TargetButtomView = self.targetButtomView
+        view.TargetBottomView = self.targetBottomView
+        view.Constraint = self.Constraint
         view.set()
         
     }

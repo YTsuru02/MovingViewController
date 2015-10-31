@@ -20,25 +20,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSG-6r-sQ2" userLabel="movingViewController">
-                                <rect key="frame" x="0.0" y="586" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="566" width="414" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="z9Z-9c-z9m" userLabel="movingView">
-                                <rect key="frame" x="0.0" y="616" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="596" width="414" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fY-jY-skS" userLabel="targetTopView">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="20"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNi-HX-fUH" userLabel="targetButtomView">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNi-HX-fUH" userLabel="targetBottomView">
+                                <rect key="frame" x="0.0" y="716" width="414" height="20"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="z9Z-9c-z9m" secondAttribute="bottom" id="0BU-rh-rI2"/>
+                            <constraint firstItem="SNi-HX-fUH" firstAttribute="top" secondItem="BSG-6r-sQ2" secondAttribute="bottom" constant="120" id="00b-pt-Vyd"/>
                             <constraint firstItem="BSG-6r-sQ2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="0i8-ww-jbh"/>
-                            <constraint firstItem="SNi-HX-fUH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1:736" id="73i-Pa-3hj"/>
+                            <constraint firstItem="SNi-HX-fUH" firstAttribute="top" secondItem="z9Z-9c-z9m" secondAttribute="bottom" id="1KH-2F-8TT"/>
+                            <constraint firstItem="SNi-HX-fUH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="20:736" id="73i-Pa-3hj"/>
                             <constraint firstItem="1fY-jY-skS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="64" id="AJA-lV-Alr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BSG-6r-sQ2" secondAttribute="trailing" constant="-16" id="L0q-TK-lm4"/>
                             <constraint firstItem="z9Z-9c-z9m" firstAttribute="top" secondItem="BSG-6r-sQ2" secondAttribute="bottom" id="LGX-nc-GhY"/>
@@ -49,17 +52,22 @@
                             <constraint firstAttribute="trailingMargin" secondItem="z9Z-9c-z9m" secondAttribute="trailing" constant="-16" id="dTs-me-7v5"/>
                             <constraint firstItem="z9Z-9c-z9m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ecJ-GD-9IN"/>
                             <constraint firstItem="SNi-HX-fUH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="f24-Qr-fgO"/>
-                            <constraint firstItem="BSG-6r-sQ2" firstAttribute="top" secondItem="SNi-HX-fUH" secondAttribute="bottom" id="ju0-82-zZm"/>
-                            <constraint firstItem="1fY-jY-skS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1:736" id="sY4-Ou-77n"/>
+                            <constraint firstItem="1fY-jY-skS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="20:736" id="sY4-Ou-77n"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BSG-6r-sQ2" secondAttribute="bottom" constant="120" id="wM5-3h-ato"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SNi-HX-fUH" secondAttribute="bottom" id="xoR-pJ-SFH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="wM5-3h-ato"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="Constraint" destination="wM5-3h-ato" id="Ra9-1R-zq6"/>
+                        <outlet property="Constraint" destination="00b-pt-Vyd" id="bU9-r9-laG"/>
                         <outlet property="MV" destination="z9Z-9c-z9m" id="Dim-SB-4BA"/>
                         <outlet property="MVController" destination="BSG-6r-sQ2" id="cmd-7D-GfU"/>
-                        <outlet property="targetButtomView" destination="SNi-HX-fUH" id="ylg-5D-hd8"/>
+                        <outlet property="targetBottomView" destination="SNi-HX-fUH" id="1N3-b9-hqt"/>
                         <outlet property="targetTopView" destination="1fY-jY-skS" id="WY1-SQ-Vq1"/>
                     </connections>
                 </viewController>

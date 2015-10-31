@@ -38,7 +38,6 @@
 		E93420D81BE4613B0082E8C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E93420D91BE4613B0082E8C7 /* MovingViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingViewControllerTests.swift; sourceTree = "<group>"; };
 		E93420E51BE4619C0082E8C7 /* MovingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingViewController.swift; sourceTree = "<group>"; };
-		E93420E71BE4655E0082E8C7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +86,6 @@
 				E93420CC1BE4613B0082E8C7 /* LaunchScreen.xib */,
 				E93420C11BE4613B0082E8C7 /* Supporting Files */,
 				E93420E51BE4619C0082E8C7 /* MovingViewController.swift */,
-				E93420E71BE4655E0082E8C7 /* PrefixHeader.pch */,
 			);
 			path = MovingViewController;
 			sourceTree = "<group>";
