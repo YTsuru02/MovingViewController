@@ -10,7 +10,7 @@
 　*06.MovingViewControllerのボトムとTargetBottomViewの距離を任意の値でConstraintを掛ける。  
 　*07.現在適用しようとしているViewContrllerのViewによって、MovingViewControllerクラスのインスタンスを作成する。  
 　*08.MovingViewControllerクラスに定義されているプロパティ（MovingView、MovingViewController、TargetTopView、TargetBottomView、BackgroundView）を設定する。  
-　*09.MovingViewControllerクラスのインスタンスメソッド、set()を呼び出す。  
-　
+　*09.MovingViewControllerクラスのインスタンスメソッド、set()を呼び出す。
+  
 これらの処理を行う事によって、以下の処理を実現出来る。  
 　*01.MovingViewControllerを指でスライド、スワイプする事によって、それに応じてMovingViewを動かす事が出来る。  
