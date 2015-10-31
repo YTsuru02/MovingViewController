@@ -95,5 +95,55 @@ class MovingViewController: UIView {
         
     }
     
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        
+        let touch = touches.anyObject() as UITouch
+        var location = touch.locationInView(self.MovingViewContoroller)
+        
+        self.setNeedsUpdateConstraints()
+        
+        NSLog("Constraint->%f", self.Constraint.constant)
+        
+        if (self.Constraint.constant >= (UIScreen.mainScreen().bounds.size.height - self.TargetTopView.center.y) - self.MovingViewContoroller.bounds.height) {
+            
+            NSLog("Collision.");
+            self.MovingViewContoroller.backgroundColor = UIColor.redColor();
+            
+            if (location.y > 0.0) {
+                self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - self.TargetTopView.center.y) - self.MovingViewContoroller.bounds.height - 0.1;
+                return;
+            }
+            
+            
+            self.Constraint.constant = (UIScreen.mainScreen().bounds.size.height - self.TargetTopView.center.y) - self.MovingViewContoroller.bounds.height;
+            
+            
+        } else if (self.Constraint.constant <= 0.0) {
+            
+            NSLog("Collision.");
+            self.MovingViewContoroller.backgroundColor = UIColor.redColor();
+            
+            
+            if (location.y < 0.0) {
+                self.Constraint.constant = 0.0 + 0.1;
+                return;
+            }
+            
+            self.Constraint.constant = 0.0;
+            
+        } else {
+            
+            NSLog("Moving->%f", location.y);
+            
+            self.MovingViewContoroller.backgroundColor = UIColor.lightGrayColor();
+            self.Constraint.constant -= location.y;
+        
+        }
+        
+        UIView.animateWithDuration(0.01, animations: { () -> Void in
+            self.layoutIfNeeded()
+        })
+    }
+    
 
 }
